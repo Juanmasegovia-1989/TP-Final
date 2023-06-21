@@ -10,3 +10,18 @@
 #define DIM_ARRAY 30
 #define ESC 27
 #include <string.h>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

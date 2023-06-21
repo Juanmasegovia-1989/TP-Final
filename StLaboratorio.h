@@ -10,4 +10,15 @@ int dia; /// 1 a … dependiendo del mes
 int PracticaRealizada; /// con códigos entre 1 y 10
 } StLaboratorios;
 
+
+
+
+
+
+
+
+
+
+
+
 #endif // STLABORATORIO_H_INCLUDED

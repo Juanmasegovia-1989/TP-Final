@@ -43,7 +43,6 @@ void imprimirUnPaciente(StPaciente paciente)
     printf("\n       DNI: ............... %d", paciente.dni);
     printf("\n   Nro.CEL: ............... %d", paciente.movil);
 }
-
 void cargarArchivoPacientes(char archivopacientes[])
 {
     char opc =0;
@@ -71,7 +70,6 @@ void cargarArchivoPacientes(char archivopacientes[])
         fclose(Arc);
     }
 }
-
 int ultimoId (char archivopacientes[])
 {
     int endId = 0;
@@ -94,7 +92,6 @@ int ultimoId (char archivopacientes[])
 
     return endId;
 }
-
 void mostrarArchivoPacientes (char archivopacientes[])
 {
 
@@ -116,7 +113,8 @@ int i=0;
 
    fclose (Arc);
 }
-void buscarxDni(char archivopacientes[], int dni){
+void buscarxDni(char archivopacientes[], int dni)
+{
 
 FILE *arc=fopen(archivopacientes,"rb");
     StPaciente paciente;
@@ -142,7 +140,8 @@ FILE *arc=fopen(archivopacientes,"rb");
     }
     fclose(arc);
 }
-void buscarApellidoNombre(char archivopacientes[], char nombre, char apellido){
+void buscarApellidoNombre(char archivopacientes[], char nombre, char apellido)
+{
 
 FILE *arc=fopen(archivopacientes,"rb");
     StPaciente paciente;
