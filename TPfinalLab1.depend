@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1686710293 source:c:\users\win10\onedrive\escritorio\utn\tpfinallab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1686696817 c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stpaciente.h
+
+1686710419 source:c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stpaciente.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1686425458 source:c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stlaboratorio.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1686423822 c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stpracticas.h
+
+1686423822 c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stlaboratorio.h
+
+1686425458 source:c:\users\win10\onedrive\escritorio\utn\tpfinallab1\stpracticas.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1686424810 source:c:\users\win10\onedrive\escritorio\utn\tpfinallab1\menuopciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	<string.h>
+
+1686424755 c:\users\win10\onedrive\escritorio\utn\tpfinallab1\menuopciones.h
+
