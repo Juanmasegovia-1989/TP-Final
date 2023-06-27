@@ -177,22 +177,63 @@ FILE *arc=fopen(archivopacientes,"rb");
     fclose(arc);
 }
 }
-void modificarPacientes
+void modificarPacientes ( char archivopacientes[])
+{
 
+int opc=0;
+while ( opc!=4){
+printf(" \t \t MENU BUSQUEDA PARA MODIFICAR \n");
+printf("\t \t 1. Busqueda por ID \n");
+printf("\t \t 2. Busqueda por APELLIDO \n");
+printf("\t \t 3. Busqueda por DNI \n");
+printf("\t \t 4. Volver MENU ANTERIOR \n");
 
+scanf("%d", opc);
 
+    switch(opc)
+    {
+        case 1: system("cls");
+                mostrarArchivoPacientes(AR_Paciente);
+                break;
 
+        case 2: system("cls");
+                fflush(stdin);
+                modificarPacientes(AR_Paciente);
+                fflush(stdin);
+                break;
+
+        case 3: system("cls");
+                fflush(stdin);
+                cargarArchivoPacientes(ARCHIVOPRACTICAS);
+                fflush(stdin);
+                break;
+
+         case 4: system("cls");
+                fflush(stdin);
+                menuPacientes();
+                fflush(stdin);
+                break;
+
+        default: system("cls");
+                printf("OPCION NO VALIDA");
+                break;
+}
+}
+}
 
 
 void menuPacientes()
 {
-    int opc;
+    int opc=0;
+    while (opc!=6){
+
     printf("\t \t MENU PACIENTES \n");
     printf("\t \t 1. Listado de pacientes \n");
     printf("\t \t 2. Modificar pacientes \n");
     printf("\t \t 3. Agregar pacientes \n ");
     printf("\t \t 4. Buscar paciente por DNI \n ");
     printf("\t \t 5. Buscar paciente por apellido \n ");
+    printf("\t \t 6. Volver al MENU ANTERIOR \n ");
     scanf("%d", &opc);
 
     switch(opc)
@@ -230,8 +271,28 @@ void menuPacientes()
                 buscarApellidoNombre(AR_Paciente, nombre, apellido);
                 break;
 
+        case 6: fflush(stdin);
+                ACA VA LA DIRECCION DEL MENU PPAL
+                fflush(stdin);
+                system("cls");
+                break;
+
+
         default: system("cls");
                 printf("OPCION NO VALIDA");
                 break;
     }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

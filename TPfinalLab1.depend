@@ -56,3 +56,51 @@
 
 1686424755 c:\users\win10\onedrive\escritorio\utn\tpfinallab1\menuopciones.h
 
+1687830665 source:c:\users\juanma\desktop\tp-final ok\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1687828858 c:\users\juanma\desktop\tp-final ok\stpaciente.h
+
+1687828951 c:\users\juanma\desktop\tp-final ok\stpracticas.h
+
+1687828577 c:\users\juanma\desktop\tp-final ok\stlaboratorio.h
+
+1687827725 c:\users\juanma\desktop\tp-final ok\menuopciones.h
+
+1687828580 source:c:\users\juanma\desktop\tp-final ok\stlaboratorio.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1687830674 source:c:\users\juanma\desktop\tp-final ok\stpaciente.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1687829545 source:c:\users\juanma\desktop\tp-final ok\stpracticas.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
