@@ -14,4 +14,6 @@ StPaciente cargaPacientes ();
 void imprimirUnPaciente(StPaciente paciente);
 void cargarArchivoPacientes( char archivoPacientes[]);
 void mostrarArchivoPacientes (char archivoPacientes[]);
+
+void menuPacientes();
 #endif // STPACIENTE_H_INCLUDED

@@ -10,6 +10,8 @@
 #define DIM_ARRAY 30
 #define ESC 27
 #include <string.h>
+#define ARCHIVOPRACTICAS "practicas.dat"
+#define ARCHIVOLABORATORIOS "laboratorios.dat"
 
 StPaciente cargaPacientes ()
 {
@@ -42,6 +44,12 @@ void imprimirUnPaciente(StPaciente paciente)
     printf("\n  APELLIDO: ...............%s", paciente.apellido);
     printf("\n       DNI: ............... %d", paciente.dni);
     printf("\n   Nro.CEL: ............... %d", paciente.movil);
+    if(paciente.eliminado==0)
+    {
+        printf("\n EL PACIENTE ESTA ACTIVO ");
+    }else{
+    printf("\n EL PACIENTE ESTA INACTIVO");
+    }
 }
 void cargarArchivoPacientes(char archivopacientes[])
 {
@@ -54,7 +62,7 @@ void cargarArchivoPacientes(char archivopacientes[])
     }
     if(Arc!=NULL)
     {
-    int contador= ultimoId(archivopacientes);
+    int contador= ultimoIdpac(archivopacientes);
 
         while(opc != ESC)
         {
@@ -70,7 +78,7 @@ void cargarArchivoPacientes(char archivopacientes[])
         fclose(Arc);
     }
 }
-int ultimoId (char archivopacientes[])
+int ultimoIdpac (char archivopacientes[])
 {
     int endId = 0;
 
@@ -97,7 +105,6 @@ void mostrarArchivoPacientes (char archivopacientes[])
 
 FILE* Arc = fopen (archivopacientes, "rb");
 StPaciente paciente;
-int i=0;
    if (Arc!=NULL)
    {
        while (fread (&paciente, sizeof(StPaciente),1,Arc)>0)
@@ -140,7 +147,7 @@ FILE *arc=fopen(archivopacientes,"rb");
     }
     fclose(arc);
 }
-void buscarApellidoNombre(char archivopacientes[], char nombre, char apellido)
+void buscarApellidoNombre(char archivopacientes[], char nombre[], char apellido[])
 {
 
 FILE *arc=fopen(archivopacientes,"rb");
@@ -148,19 +155,19 @@ FILE *arc=fopen(archivopacientes,"rb");
 
     if (arc!=NULL){
             fread(&paciente,sizeof(StPaciente),1,arc);
-       while ((!feof(arc))&&(paciente.apellido!=apellido)&&(paciente.nombre!=nombre)){
-            fread(&paciente,sizeof(StPaciente),1,arc);
-       }
-       if ( apellido ==paciente.apellido){
+       while (fread(&paciente,sizeof(StPaciente),1,arc)>0){
+
+       if (strcmpi(apellido, paciente.apellido)==0){
 
 
-            if ( nombre ==paciente.nombre){
+            if (strcmpi(nombre, paciente.nombre)==0){
 
             imprimirUnPaciente(paciente);
 
 
         puts("\n ----------------------------------");
       }
+       }
        else
        {
 
@@ -169,4 +176,62 @@ FILE *arc=fopen(archivopacientes,"rb");
     }
     fclose(arc);
 }
+}
+void modificarPacientes
+
+
+
+
+
+
+void menuPacientes()
+{
+    int opc;
+    printf("\t \t MENU PACIENTES \n");
+    printf("\t \t 1. Listado de pacientes \n");
+    printf("\t \t 2. Modificar pacientes \n");
+    printf("\t \t 3. Agregar pacientes \n ");
+    printf("\t \t 4. Buscar paciente por DNI \n ");
+    printf("\t \t 5. Buscar paciente por apellido \n ");
+    scanf("%d", &opc);
+
+    switch(opc)
+    {
+        case 1: system("cls");
+                mostrarArchivoPacientes(AR_Paciente);
+                break;
+
+        case 2: system("cls");
+                fflush(stdin);
+                modificarPacientes(AR_Paciente);
+                fflush(stdin);
+                break;
+
+        case 3: system("cls");
+                fflush(stdin);
+                cargarArchivoPacientes(ARCHIVOPRACTICAS);
+                fflush(stdin);
+                break;
+
+        case 4: system("cls");
+                int dni;
+                printf("Ingrese el DNI que quiere buscar \n");
+                scanf("%d", &dni);
+                buscarxDni(AR_Paciente, dni);
+                break;
+
+        case 5: system("cls");
+                char nombre[30];
+                char apellido[30];
+                printf("Ingrese el nombre a buscar \n");
+                gets(nombre);
+                printf("Ingrese el apellido a buscar \n");
+                gets(apellido);
+                buscarApellidoNombre(AR_Paciente, nombre, apellido);
+                break;
+
+        default: system("cls");
+                printf("OPCION NO VALIDA");
+                break;
+    }
 }

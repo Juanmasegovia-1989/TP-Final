@@ -10,6 +10,8 @@
 #define DIM_ARRAY 30
 #define ESC 27
 #include <string.h>
+#define ARCHIVOPRACTICAS "practicas.dat"
+#define ARCHIVOLABORATORIOS "laboratorios.dat"
 
 
 stPracticas cargaPractica ()
@@ -31,7 +33,7 @@ void cargaPracticas(char archi[])
 
     if(archi != NULL );
     {
-        int contador = ultimoId(archi);
+        int contador = ultimoIdprac(archi);
         do
         {
             contador++;
@@ -52,15 +54,20 @@ void cargaPracticas(char archi[])
 
         }
         while(getch()!= 27);
+        fclose(dat);
     }
-    fclose(dat);
 }
 void mostrarPractica(stPracticas aux)
 {
     printf("\n idPractica..............%d", aux.idPractica);
     printf("\n Nombre..................%s", aux.nombre);
     printf("\n Costo...................%d", aux.costo);
-    printf("\n Baja....................%d", aux.baja);
+    if(aux.baja!=0)
+    {
+        printf("\n La practica esta eliminada \n");
+    }else{
+    printf("\n La practica esta activa \n");
+    }
 }
 void mostrarPracticas(char archi[])
 {
@@ -74,11 +81,10 @@ void mostrarPracticas(char archi[])
         {
             mostrarPractica(a);
             printf("\n -----------------------------------------------\n ");
-        }
+        }fclose(dat);
     }
-    fclose(dat);
 }
-int ultimoId(char archi[])
+int ultimoIdprac(char archi[])
 {
     int ultId = 0;
     stPracticas aux;
@@ -91,7 +97,7 @@ int ultimoId(char archi[])
         if(fread(&aux, sizeof(stPracticas),1,dat)>0)
         {
             ultId= aux.idPractica;
-        }
+        }fclose(dat);
     }
     return ultId;
 }
@@ -117,7 +123,7 @@ void modificarPractica (char archi[])
             if(aux.idPractica == id)
             {
                 mostrarPractica(aux);
-                printf("\nIngrese el nuevo nombre de la practica %d: \n", id);
+                printf("\n Ingrese el nuevo nombre de la practica %d: \n", id);
                 fflush(stdin);
                 gets(aux.nombre);
                 printf("Ingrese el nuevo costo de la practica %d: \n", id);
@@ -126,9 +132,8 @@ void modificarPractica (char archi[])
                 fwrite(&aux, sizeof(stPracticas), 1, dat);
                 flag = 1;
             }
-        }
+        }fclose(dat);
     }
-    fclose(dat);
 }
 int repiteNombre (char archi[], stPracticas aux)
 {
@@ -136,6 +141,8 @@ int repiteNombre (char archi[], stPracticas aux)
     rewind(dat);
     stPracticas aux1;
     int flag = 0;
+
+    if((dat!=NULL)){
 
     while (fread(&aux1, sizeof(stPracticas), 1, dat)>0)
     {
@@ -145,6 +152,8 @@ int repiteNombre (char archi[], stPracticas aux)
         }
     }
     return flag;
+    fclose(dat);
+    }
 }
 void menuPracticas ()
 {
