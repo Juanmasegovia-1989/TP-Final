@@ -104,3 +104,41 @@
 	"menuOpciones.h"
 	<string.h>
 
+1687830665 source:c:\users\juanma\desktop\tp final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1687828858 c:\users\juanma\desktop\tp final\stpaciente.h
+
+1687828951 c:\users\juanma\desktop\tp final\stpracticas.h
+
+1687828577 c:\users\juanma\desktop\tp final\stlaboratorio.h
+
+1687827725 c:\users\juanma\desktop\tp final\menuopciones.h
+
+1687828580 source:c:\users\juanma\desktop\tp final\stlaboratorio.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+
+1687829545 source:c:\users\juanma\desktop\tp final\stpracticas.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"StPaciente.h"
+	"StPracticas.h"
+	"StLaboratorio.h"
+	"menuOpciones.h"
+	<string.h>
+

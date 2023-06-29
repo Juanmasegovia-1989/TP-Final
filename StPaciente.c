@@ -39,11 +39,11 @@ void imprimirUnPaciente(StPaciente paciente)
 {
 
     printf("\n\t>>>>> DATOS PACIENTE: <<<<<<\n");
-    printf("\n      ID #: ............... %d",paciente.idPaciente);
+    printf("\n      ID #: ...............%d",paciente.idPaciente);
     printf("\n    NOMBRE: ...............%s", paciente.nombre);
     printf("\n  APELLIDO: ...............%s", paciente.apellido);
-    printf("\n       DNI: ............... %d", paciente.dni);
-    printf("\n   Nro.CEL: ............... %d", paciente.movil);
+    printf("\n       DNI: ...............%d", paciente.dni);
+    printf("\n   Nro.CEL: ...............%d", paciente.movil);
     if(paciente.eliminado==0)
     {
         printf("\n EL PACIENTE ESTA ACTIVO ");
@@ -177,63 +177,132 @@ FILE *arc=fopen(archivopacientes,"rb");
     fclose(arc);
 }
 }
+
+void modificaUnPaciente(int flag )
+{
+    char opc;
+    FILE *arc=fopen(archivopacientes,"ab");
+    StPaciente paciente;
+    if (arc != NULL)
+    {
+     if (flag == 0)
+    {
+        char nombre[30];
+        char apellido[30];
+        printf("Ingrese el nombre a buscar \n");
+        gets(nombre);
+        printf("Ingrese el apellido a buscar \n");
+        gets(apellido);
+        buscarApellidoNombre(AR_Paciente, nombre, apellido);
+        fseek(arc, (-1) * sizeof(StPaciente), SEEK_CUR);
+    }
+    else
+    {
+        printf("Ingrese el DNI que quiere buscar \n");
+        scanf("%d", &dni);
+        buscarxDni(AR_Paciente, dni);
+        buscarxDni(AR_Paciente, dni);
+        fseek(arc, (-1) * sizeof(StPaciente), SEEK_CUR);
+    }
+    printf(" Desea modificar nombre y apellido S/N \n\n");
+    opc=getch();
+    if ( strcmpi(opc,'s')
+    {
+        printf ("\n NOMBRE: \n");
+        fflush (stdin);
+        gets (paciente.nombre);
+    }
+    if ( strcmpi(opc,'s')
+    {
+    printf ("\n APELLIDO: \n");
+    fflush (stdin);
+    gets (paciente.apellido);
+    }
+    if ( strcmpi(opc,'s')
+    {
+    printf ("\n DNI:\n");
+    fflush (stdin);
+    scanf ("%d", &paciente.dni);
+    }
+    paciente.eliminado =0;
+    fwrite(&paciente, sizeof(StPaciente),1,arc);
+    system("cls");
+    }
+    else
+    {
+        printf("\n ERROR \n");
+    }
+    fclose(arc);
+}
+
 void modificarPacientes ( char archivopacientes[])
 {
+    int opc=0;
+    char salir;
+    int flag;
 
-int opc=0;
-while ( opc!=4){
-printf(" \t \t MENU BUSQUEDA PARA MODIFICAR \n");
-printf("\t \t 1. Busqueda por ID \n");
-printf("\t \t 2. Busqueda por APELLIDO \n");
-printf("\t \t 3. Busqueda por DNI \n");
-printf("\t \t 4. Volver MENU ANTERIOR \n");
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \m");
+    salir=getch();
 
-scanf("%d", opc);
-
-    switch(opc)
+    while ( salir!=ESC)
     {
-        case 1: system("cls");
-                mostrarArchivoPacientes(AR_Paciente);
-                break;
+        printf(" \t \t MENU BUSQUEDA PARA MODIFICAR \n");
+        printf("\t \t 1. Busqueda por APELLIDO y NOMBRE \n");
+        printf("\t \t 2. Busqueda por DNI \n");
+        printf("\t \t 3. Volver MENU ANTERIOR \n");
 
-        case 2: system("cls");
-                fflush(stdin);
-                modificarPacientes(AR_Paciente);
-                fflush(stdin);
-                break;
+        scanf("%d", opc);
 
-        case 3: system("cls");
-                fflush(stdin);
-                cargarArchivoPacientes(ARCHIVOPRACTICAS);
-                fflush(stdin);
-                break;
+        switch(opc)
+        {
+        case 1:
+            system("cls");
+            fflush(stdin);
+            flag=0;
+            modificaUnPaciente (flag);
+            break;
 
-         case 4: system("cls");
-                fflush(stdin);
-                menuPacientes();
-                fflush(stdin);
-                break;
+        case 2:
+            flag=1;
+            modificaUnPaciente (flag)
+            break;
 
-        default: system("cls");
-                printf("OPCION NO VALIDA");
-                break;
+        case 3:
+            system("cls");
+            fflush(stdin);
+            menuPacientes();
+            fflush(stdin);
+            break;
+
+        default:
+            system("cls");
+            printf("OPCION NO VALIDA");
+            break;
+        }
+    }
+
 }
-}
-}
+
 
 
 void menuPacientes()
 {
     int opc=0;
-    while (opc!=6){
+    char salir;
+
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \m");
+    salir=getch();
+
+    while (salir!=ESC){
 
     printf("\t \t MENU PACIENTES \n");
     printf("\t \t 1. Listado de pacientes \n");
     printf("\t \t 2. Modificar pacientes \n");
     printf("\t \t 3. Agregar pacientes \n ");
-    printf("\t \t 4. Buscar paciente por DNI \n ");
-    printf("\t \t 5. Buscar paciente por apellido \n ");
-    printf("\t \t 6. Volver al MENU ANTERIOR \n ");
+    printf("\t \t 4. Baja de pacientes \n ");
+    printf("\t \t 5. Buscar paciente por DNI \n ");
+    printf("\t \t 6. Buscar paciente por apellido \n ");
+    printf("\t \t 7. Volver al MENU ANTERIOR \n ");
     scanf("%d", &opc);
 
     switch(opc)
@@ -255,13 +324,19 @@ void menuPacientes()
                 break;
 
         case 4: system("cls");
+                fflush(stdin);
+                ///funcion baja de paciente
+                fflush(stdin);
+                break;
+
+        case 5: system("cls");
                 int dni;
                 printf("Ingrese el DNI que quiere buscar \n");
                 scanf("%d", &dni);
                 buscarxDni(AR_Paciente, dni);
                 break;
 
-        case 5: system("cls");
+        case 6: system("cls");
                 char nombre[30];
                 char apellido[30];
                 printf("Ingrese el nombre a buscar \n");
@@ -271,8 +346,8 @@ void menuPacientes()
                 buscarApellidoNombre(AR_Paciente, nombre, apellido);
                 break;
 
-        case 6: fflush(stdin);
-                ACA VA LA DIRECCION DEL MENU PPAL
+        case 7: fflush(stdin);
+                ///ACA VA LA DIRECCION DEL MENU PPAL
                 fflush(stdin);
                 system("cls");
                 break;
