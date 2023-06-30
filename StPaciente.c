@@ -181,8 +181,10 @@ FILE *arc=fopen(archivopacientes,"rb");
 void modificaUnPaciente(int flag )
 {
     char opc;
+    int dni;
     FILE *arc=fopen(archivopacientes,"ab");
     StPaciente paciente;
+    StPaciente pacienteModif;
     if (arc != NULL)
     {
      if (flag == 0)
@@ -193,7 +195,7 @@ void modificaUnPaciente(int flag )
         gets(nombre);
         printf("Ingrese el apellido a buscar \n");
         gets(apellido);
-        buscarApellidoNombre(AR_Paciente, nombre, apellido);
+        pacienteModif=buscarApellidoNombre(AR_Paciente, nombre, apellido);
         fseek(arc, (-1) * sizeof(StPaciente), SEEK_CUR);
     }
     else
@@ -201,24 +203,24 @@ void modificaUnPaciente(int flag )
         printf("Ingrese el DNI que quiere buscar \n");
         scanf("%d", &dni);
         buscarxDni(AR_Paciente, dni);
-        buscarxDni(AR_Paciente, dni);
+        pacienteModif= buscarxDni(AR_Paciente, dni);
         fseek(arc, (-1) * sizeof(StPaciente), SEEK_CUR);
     }
     printf(" Desea modificar nombre y apellido S/N \n\n");
     opc=getch();
-    if ( strcmpi(opc,'s')
+    if ( strcmpi(opc,'s'))
     {
         printf ("\n NOMBRE: \n");
         fflush (stdin);
         gets (paciente.nombre);
     }
-    if ( strcmpi(opc,'s')
+    if ( strcmpi(opc,'s'))
     {
     printf ("\n APELLIDO: \n");
     fflush (stdin);
     gets (paciente.apellido);
     }
-    if ( strcmpi(opc,'s')
+    if ( strcmpi(opc,'s'))
     {
     printf ("\n DNI:\n");
     fflush (stdin);
@@ -232,8 +234,10 @@ void modificaUnPaciente(int flag )
     {
         printf("\n ERROR \n");
     }
+
     fclose(arc);
 }
+
 
 void modificarPacientes ( char archivopacientes[])
 {
@@ -241,7 +245,7 @@ void modificarPacientes ( char archivopacientes[])
     char salir;
     int flag;
 
-    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \m");
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \n");
     salir=getch();
 
     while ( salir!=ESC)
@@ -264,7 +268,7 @@ void modificarPacientes ( char archivopacientes[])
 
         case 2:
             flag=1;
-            modificaUnPaciente (flag)
+            modificaUnPaciente (flag);
             break;
 
         case 3:
@@ -290,7 +294,7 @@ void menuPacientes()
     int opc=0;
     char salir;
 
-    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \m");
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \n");
     salir=getch();
 
     while (salir!=ESC){
