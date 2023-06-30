@@ -54,8 +54,6 @@ void cargaLaboratorios(char archi[])
         fclose(dat);
     }
 }
-
-
 int ultimoId(char archi[])
 {
     int ultId = 0;
@@ -73,7 +71,6 @@ int ultimoId(char archi[])
     }
     return ultId;
 }
-
 void mostrarLaboratorio(StLaboratorios aux)
 {
     printf("\n ID laboratorio: %d ", aux.idLab);
@@ -90,7 +87,6 @@ void mostrarLaboratorio(StLaboratorios aux)
     printf("El laboratorio esta activo \n");
     }
 }
-
 void mostrarLaboratorios(char archi [])
 {
     FILE * dat = fopen(archi, "rb");
@@ -106,7 +102,6 @@ void mostrarLaboratorios(char archi [])
         }fclose(dat);
     }
 }
-
 void modificarLaboratorios (char archi[])
 {
     int id = modificarxid(archi);
@@ -130,37 +125,52 @@ void modificarLaboratorios (char archi[])
         }fclose(dat);
     }
 }
-
 void menuLaboratorios ()
 {
     int opc;
-    printf("\t \t MENU LABORATORIOS \n");
-    printf("\t \t 1. Listado de laboratorios \n");
-    printf("\t \t 2. Modificar laboratorios \n");
-    printf("\t \t 3. Agregar laboratorios \n ");
-    scanf("%d", &opc);
 
-    switch(opc)
-    {
-        case 1: system("cls");
-                mostrarLaboratorios(ARCHIVOLABORATORIOS);
-                break;
+    char salir;
 
-        case 2: system("cls");
-                modificarLaboratorios(ARCHIVOLABORATORIOS);
-                break;
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \n");
+    salir=getch();
 
-        case 3: system("cls");
-                fflush(stdin);
-                cargaLaboratorios(ARCHIVOLABORATORIOS);
-                fflush(stdin);
-                break;
+    while (salir!=ESC){
+        printf("\t \t MENU LABORATORIOS \n");
+        printf("\t \t 1. Listado de laboratorios \n");
+        printf("\t \t 2. Modificar laboratorios \n");
+        printf("\t \t 3. Agregar laboratorios \n ");
+        printf("\t \t 4. Baja de laboratorios \n ");
+        scanf("%d", &opc);
 
-        default: system("cls");
-                printf("OPCION NO VALIDA");
-                break;
+        switch(opc)
+        {
+        case 1:
+            system("cls");
+            mostrarLaboratorios(ARCHIVOLABORATORIOS);
+            break;
+
+        case 2:
+            system("cls");
+            modificarLaboratorios(ARCHIVOLABORATORIOS);
+            break;
+
+        case 3:
+            system("cls");
+            fflush(stdin);
+            cargaLaboratorios(ARCHIVOLABORATORIOS);
+            fflush(stdin);
+            break;
+        case 4:
+            system("cls");
+            fflush(stdin);
+            ///funcion eliminado logico de labo
+            fflush(stdin);
+            break;
+
+        default:
+            system("cls");
+            printf("OPCION NO VALIDA");
+            break;
+        }
     }
 }
-
-
-

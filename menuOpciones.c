@@ -6,42 +6,55 @@
 #include "StLaboratorio.h"
 #include "menuOpciones.h"
 #define ARCHIVO "archivo.bin"
-#define AR_Paciente "paciente.dat"
+#define AR_Paciente "pacientes.dat"
 #define DIM_ARRAY 30
 #define ESC 27
 #include <string.h>
+#define ARCHIVOPRACTICAS "practicas.dat"
+#define ARCHIVOLABORATORIOS "laboratorios.dat"
 
-  / void menuPrincipal ()
- {
-        int opcion;
+void menuPrincipal ()
+{
+    int opc=0;
+
+    while (opc!=4)
+    {
         printf("\n\t>>>>> MENU PRINCIPAL: <<<<<<\n");
-        printf( "\n   1. Pacientes.");
-        printf( "\n   2. Practicas.");
-        printf( "\n   3. Laboratorio." );
+        printf( "\n   1. Menu de Pacientes.");
+        printf( "\n   2. Menu de Practicas.");
+        printf( "\n   3. Menu de Laboratorio." );
         printf( "\n   4. Salir." );
         printf( "\n\n   Introduzca opcion (1-4): ");
 
-        scanf( "%d", &opcion );
-        switch ( opcion )
+        scanf("%d", &opc);
+        switch (opc)
         {
-        default: system("cls");
+        default:
+            system("cls");
             printf("Ingrese una opcion valida \n");
             menuPrincipal();
             break;
-            case 1: system("cls");
-                    MenuPacientes();
-                    break;
+        case 1:
+            system("cls");
+            menuPacientes();
+            break;
 
-            case 2: system("cls");
-                    MenuPracticas();
-                    break;
+        case 2:
+            system("cls");
+            menuPracticas();
+            break;
 
-            case 3: system("cls");
-                    MenuLaboratorios();
-                    break;
+        case 3:
+            system("cls");
+            menuLaboratorios();
+            break;
 
-            case 4: printf("\n   Salir \n\n\n\n");
-                    break;
-        }    opcion;
+        case 4:
+            printf("\n   Salir \n\n\n\n");
+            break;
+        }
+        opc;
 
- }*/
+    }
+
+}

@@ -158,6 +158,12 @@ int repiteNombre (char archi[], stPracticas aux)
 void menuPracticas ()
 {
     int opc;
+    char salir;
+
+    printf("\n PRESIONE ESC PARA SALIR Y VOLVER AL MENU ANTERIOR \n");
+    salir=getch();
+
+    while (salir!=ESC){
     printf("\t \t MENU PRACTICAS \n");
     printf("\t \t 1. Listado de practicas \n");
     printf("\t \t 2. Modificar practicas \n");
@@ -185,7 +191,4 @@ void menuPracticas ()
                 break;
     }
 }
-
-
-
-
+}

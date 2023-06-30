@@ -15,8 +15,7 @@
 
 int main()
 {
-
-   // cargarArchivoPacientes(AR_Paciente);
-    mostrarArchivoPacientes (AR_Paciente);
+    menuPrincipal();
+    printf("\n Gracias por utilizar nuestro sistema\n");
     return 0;
 }
